@@ -9,7 +9,7 @@ redirect_from:
 
 I'm a research intern at Hao AI Lab, advised by [Prof. Hao Zhang](https://cseweb.ucsd.edu/~haozhang/) and [Prof. Haojian Jin](https://www.haojianj.in/).
 
-My research focuses on building AI agents and efficient LLM reinforcement learning systems.
+My research focuses on building useful AI agents and efficient LLM reinforcement learning systems.
 
 ---
 
@@ -105,13 +105,21 @@ My research focuses on building AI agents and efficient LLM reinforcement learni
   </div>
   <div class="experience-content">
     <strong>{{ res.role }}</strong><br>
-    {% if res.course %}
-      <a href="{{ res.course_url }}" target="_blank">{{ res.course }}</a>, {{ res.institution }}
-    {% elsif res.lab %}
-      {{ res.lab }}, {{ res.institution }}
-    {% else %}
-      {{ res.institution }}
-    {% endif %}
+    {{ res.lab }}, {{ res.institution }}
+  </div>
+</div>
+{% endfor %}
+
+### Teaching Experience
+
+{% for teach in site.data.experience.teaching %}
+<div class="experience-card">
+  <div class="experience-meta">
+    <span class="experience-period">{{ teach.period }}</span>
+  </div>
+  <div class="experience-content">
+    <strong>{{ teach.role }}</strong><br>
+    <a href="{{ teach.course_url }}" target="_blank">{{ teach.course }}</a>, {{ teach.institution }}
   </div>
 </div>
 {% endfor %}

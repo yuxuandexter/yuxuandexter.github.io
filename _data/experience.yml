@@ -14,13 +14,14 @@ research:
     institution: "UC San Diego"
     period: "Present"
 
+  - role: "Research Intern"
+    lab: "Scripps Research"
+    institution: "La Jolla, CA"
+    period: "Previous"
+
+teaching:
   - role: "Teaching Assistant"
     course: "DSC204A: Scalable Data Systems"
     course_url: "https://hao-ai-lab.github.io/dsc204a-f25/staff/"
     institution: "UC San Diego"
     period: "Fall 2025"
-
-  - role: "Research Intern"
-    lab: "Scripps Research"
-    institution: "La Jolla, CA"
-    period: "Previous"
