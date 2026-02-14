@@ -21,12 +21,12 @@ repository               : "yuxuandexter/yuxuandexter.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile_fox.png"
+  avatar           : "profile_naive_penguine.jpg"
   name             : "Yuxuan Zhang"
   pronouns         : "he/his"  
   bio              : "I am interested in AI agents." 
   location         : "La Jolla, CA"
-  employer         : "University of California, San Diego"
+  employer         : "UC San Diego"
   uri              : "https://yuxuandexter.github.io" # URL
   email            : "yuz165@ucsd.edu" 
 

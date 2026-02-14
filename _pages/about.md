@@ -2,36 +2,117 @@
 permalink: /
 title: "Yuxuan Zhang"
 author_profile: true
-redirect_from: 
+redirect_from:
   - /about/
   - /about.html
 ---
 
-Hi, I'm an M.S. student in Computer Science at UC San Diego (UCSD), fortunately advised by [Prof. Hao Zhang](https://cseweb.ucsd.edu/~haozhang/) and [Prof. Haojian Jin](https://www.haojianj.in/). 
+I'm a research intern at Hao AI Lab, advised by [Prof. Hao Zhang](https://cseweb.ucsd.edu/~haozhang/) and [Prof. Haojian Jin](https://www.haojianj.in/).
 
-Before that, I earned my B.S. in Data Science from UCSD’s Halıcıoğlu Data Science Institute (HDSI), graduating *summa cum laude* (top 2 %).
+My research focuses on building AI agents and efficient LLM reinforcement learning systems.
 
-I am interested in AI Agents: 50% on building AI agents and 50% on agentic RL training.
+---
 
+## Recent News
 
-## Highlights
+{% for news in site.data.news limit:7 %}
+<div class="news-item">
+  <span class="news-date">{{ news.date | date: "%b %Y" }}</span>
+  <span class="news-content">
+    {% if news.icon %}<i class="fa {{ news.icon }}" aria-hidden="true"></i> {% endif %}
+    {% if news.link %}
+      <a href="{{ news.link }}">{{ news.title }}</a>
+    {% else %}
+      {{ news.title }}
+    {% endif %}
+  </span>
+</div>
+{% endfor %}
 
-**Large‑Model Benchmark**: [LMGame‑Bench](https://github.com/lmgame-org/GamingAgent) ![GitHub stars](https://img.shields.io/github/stars/lmgame-org/GamingAgent?style=social) (2025)
+---
 
-**Agentic LLM Multi-Turn RL Training**: [GRL](https://github.com/lmgame-org/GRL/tree/main) ![GitHub stars](https://img.shields.io/github/stars/lmgame-org/GRL?style=social) (2025)
+## Projects
 
-**AI Gameplay Demo**: [Ace Attorney Gameplay](https://x.com/haoailab/status/1912231343372812508) ![X views](https://img.shields.io/badge/👁️ Views-950k-blue?style=social) (2025)
+<div class="project-grid">
+{% for project in site.data.projects %}
+  <div class="project-item">
+    <div class="project-header">
+      <h3><a href="{{ project.url }}" target="_blank">{{ project.name }}</a></h3>
+      <span class="project-role project-role--{{ project.role }}">{{ project.role }}</span>
+    </div>
+    <span class="project-stars">
+      {% if project.type == "github" %}
+        {% assign url_parts = project.url | split: "/" %}
+        {% assign repo_owner = url_parts[3] %}
+        {% assign repo_name = url_parts[4] %}
+        <img src="https://img.shields.io/github/stars/{{ repo_owner }}/{{ repo_name }}?style=social" alt="GitHub stars">
+      {% elsif project.metric %}
+        <span class="custom-metric"><i class="fa fa-eye" aria-hidden="true"></i> {{ project.metric }}</span>
+      {% endif %}
+    </span>
+    <p class="project-description">{{ project.description }}</p>
+  </div>
+{% endfor %}
+</div>
 
+---
 
+## Publications
 
-## Publications  
+{% assign sorted_pubs = site.publications | reverse %}
+{% for pub in sorted_pubs %}
+<div class="publication-item">
+  <strong><a href="{{ pub.url }}">{{ pub.title }}</a></strong><br>
+  <em>{{ pub.venue }}</em><br>
+  {% if pub.excerpt %}{{ pub.excerpt | strip_html | truncatewords: 30 }}<br>{% endif %}
+  {% if pub.paperurl %}<a href="{{ pub.paperurl }}" class="btn btn--small btn--info">Paper</a>{% endif %}
+  {% if pub.codeurl %}<a href="{{ pub.codeurl }}" class="btn btn--small btn--primary">Code</a>{% endif %}
+</div>
+{% endfor %}
 
-1. **LMGame‑Bench: How Good are LLMs at Playing Games?** [arXiv 2505.15146](https://arxiv.org/abs/2505.15146)  
-   *NeurIPS ’25* — submitted  
-   Lanxiang Hu, Mingjia Huo, **Yuxuan Zhang**, Haoyang Yu, Eric P. Xing, Ion Stoica, Tajana Rosing, Haojian Jin, Hao Zhang  
+---
 
-2. **General Modular Harness for LLM Agents in Multi‑Turn Gaming Environments** [arXiv 2507.11633](https://arxiv.org/abs/2507.11633)  
-   *ICML ’25 Workshop*  
-   **Yuxuan Zhang**, Haoyang Yu, Lanxiang Hu, Haojian Jin, Hao Zhang
+## Experience
 
+### Education
+
+{% for edu in site.data.experience.education %}
+<div class="experience-card">
+  <div class="experience-meta">
+    <span class="experience-period">{{ edu.period }}</span>
+  </div>
+  <div class="experience-content">
+    <strong>{{ edu.degree }}</strong><br>
+    {{ edu.institution }}
+    {% if edu.honors %}<br><em>{{ edu.honors }}</em>{% endif %}
+    {% if edu.advisors %}
+      <br>Advised by:
+      {% for advisor in edu.advisors %}
+        <a href="{{ advisor.url }}">{{ advisor.name }}</a>{% unless forloop.last %}, {% endunless %}
+      {% endfor %}
+    {% endif %}
+    {% if edu.focus %}<br>{{ edu.focus }}{% endif %}
+  </div>
+</div>
+{% endfor %}
+
+### Research Experience
+
+{% for res in site.data.experience.research %}
+<div class="experience-card">
+  <div class="experience-meta">
+    <span class="experience-period">{{ res.period }}</span>
+  </div>
+  <div class="experience-content">
+    <strong>{{ res.role }}</strong><br>
+    {% if res.course %}
+      <a href="{{ res.course_url }}" target="_blank">{{ res.course }}</a>, {{ res.institution }}
+    {% elsif res.lab %}
+      {{ res.lab }}, {{ res.institution }}
+    {% else %}
+      {{ res.institution }}
+    {% endif %}
+  </div>
+</div>
+{% endfor %}
 

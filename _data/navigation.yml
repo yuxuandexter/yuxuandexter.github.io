@@ -5,23 +5,11 @@
 # prevent it from being included in the site.
 
 main:
-  - title: "Publications"
-    url: /publications/
+  - title: "About Me"
+    url: /
 
-  # - title: "Talks"
-  #   url: /talks/    
+  - title: "Blogs"
+    url: /year-archive/
 
-  # - title: "Teaching"
-  #   url: /teaching/    
-    
-  - title: "Portfolio"
-    url: /portfolio/
-        
-  # - title: "Blog Posts"
-  #   url: /year-archive/
-    
-  - title: "CV"
-    url: /cv/
-    
-  # - title: "Guide"
-  #   url: /markdown/
+  # Note: Publications, Projects, Experience, CV accessible via homepage scrolling
+  # Separate pages still accessible via direct URLs for SEO

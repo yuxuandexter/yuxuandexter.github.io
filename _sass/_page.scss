@@ -36,7 +36,10 @@
 
 .page__title {
   margin-top: 0;
+  margin-bottom: 1em;
   line-height: 1;
+  text-align: center;
+  font-size: $type-size-1;
 
   & + .page__meta {
     margin-top: -0.5em;
@@ -398,4 +401,277 @@
   margin-bottom: 10px;
   font-size: $type-size-6;
   text-transform: uppercase;
+}
+
+/* ==========================================================================
+   SINGLE-PAGE PERSONAL WEBSITE CUSTOM STYLES
+   ========================================================================== */
+
+// Recent News Timeline
+.news-item {
+  display: flex;
+  gap: 1em;
+  margin-bottom: 0.75em;
+  padding-bottom: 0.75em;
+  border-bottom: 1px solid $border-color;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  .news-date {
+    flex-shrink: 0;
+    width: 80px;
+    color: $gray;
+    font-size: $type-size-7;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .news-content {
+    flex-grow: 1;
+
+    i.fa {
+      color: $info-color;
+      margin-right: 0.5em;
+    }
+  }
+
+  @include breakpoint($small) {
+    flex-direction: column;
+    gap: 0.25em;
+
+    .news-date {
+      width: auto;
+    }
+  }
+}
+
+// Publications List
+.publication-item {
+  margin-bottom: 1.5em;
+  padding-bottom: 1.5em;
+  border-bottom: 1px solid $lighter-gray;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  strong a {
+    color: $text-color;
+    text-decoration: none;
+
+    &:hover {
+      color: $link-color;
+      text-decoration: underline;
+    }
+  }
+
+  .btn {
+    margin-top: 0.5em;
+    margin-right: 0.5em;
+  }
+}
+
+// Project Grid
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1em;
+  margin-bottom: 2em;
+
+  @include breakpoint($small) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include breakpoint(max-width 600px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project-card {
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  padding: 1em;
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 2px 8px rgba(#000, 0.1);
+  }
+
+  img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: $border-radius;
+    margin-bottom: 0.75em;
+  }
+
+  h3 {
+    margin: 0 0 0.5em 0;
+    font-size: $type-size-5;
+
+    a {
+      color: $text-color;
+      text-decoration: none;
+
+      &:hover {
+        color: $link-color;
+      }
+    }
+  }
+
+  p {
+    margin: 0;
+    font-size: $type-size-6;
+    color: $gray;
+  }
+}
+
+// Project Items (grid layout)
+.project-item {
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  padding: 1em;
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 2px 8px rgba(#000, 0.1);
+  }
+
+  .project-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5em;
+    margin-bottom: 0.75em;
+
+    h3 {
+      margin: 0;
+      font-size: $type-size-5;
+      flex-grow: 1;
+
+      a {
+        color: $text-color;
+        text-decoration: none;
+
+        &:hover {
+          color: $link-color;
+        }
+      }
+    }
+  }
+
+  .project-stars {
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75em;
+
+    img {
+      height: 20px;
+      vertical-align: middle;
+    }
+
+    .custom-metric {
+      font-size: $type-size-6;
+      color: $gray;
+
+      i.fa {
+        color: #1da1f2;
+        margin-right: 0.25em;
+      }
+    }
+  }
+
+  .project-role {
+    display: inline-block;
+    padding: 0.25em 0.75em;
+    border-radius: 12px;
+    font-size: $type-size-7;
+    font-weight: 600;
+    text-transform: uppercase;
+    white-space: nowrap;
+    flex-shrink: 0;
+
+    &--lead {
+      background-color: #e3f2fd;
+      color: #1976d2;
+    }
+
+    &--co-lead {
+      background-color: #f3e5f5;
+      color: #7b1fa2;
+    }
+
+    &--contribute {
+      background-color: #fff3e0;
+      color: #f57c00;
+    }
+
+    &--core-coder {
+      background-color: #e8f5e9;
+      color: #388e3c;
+    }
+  }
+
+  .project-description {
+    margin: 0;
+    font-size: $type-size-6;
+    color: $text-color;
+    line-height: 1.5;
+  }
+}
+
+// Experience Cards
+.experience-card {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 1.5em;
+  margin-bottom: 1.5em;
+  padding: 1em;
+  background: $lighter-gray;
+  border-left: 3px solid $info-color;
+  border-radius: $border-radius;
+
+  @include breakpoint($small) {
+    grid-template-columns: 1fr;
+    gap: 0.5em;
+  }
+
+  .experience-meta {
+    .experience-period {
+      display: inline-block;
+      font-size: $type-size-7;
+      color: $gray;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+  }
+
+  .experience-content {
+    strong {
+      font-size: $type-size-5;
+      color: $text-color;
+    }
+
+    a {
+      color: $link-color;
+    }
+  }
+}
+
+// Section Dividers
+.page__content > hr {
+  margin: 1.5em 0;
+  border: none;
+  border-top: 2px solid $border-color;
+}
+
+// Section Emoji Headers (optional styling)
+.page__content {
+  h2 {
+    font-size: $type-size-3;
+    margin-top: 1em;
+  }
 }

@@ -1,0 +1,26 @@
+education:
+  - degree: "M.S. in Computer Science"
+    institution: "University of California, San Diego"
+    period: "2024 - Present"
+
+  - degree: "B.S. in Data Science"
+    institution: "University of California, San Diego"
+    period: "2020 - 2024"
+    honors: "Summa cum laude (top 2%)"
+
+research:
+  - role: "Research Intern"
+    lab: "Hao AI Lab"
+    institution: "UC San Diego"
+    period: "Present"
+
+  - role: "Teaching Assistant"
+    course: "DSC204A: Scalable Data Systems"
+    course_url: "https://hao-ai-lab.github.io/dsc204a-f25/staff/"
+    institution: "UC San Diego"
+    period: "Fall 2025"
+
+  - role: "Research Intern"
+    lab: "Scripps Research"
+    institution: "La Jolla, CA"
+    period: "Previous"
