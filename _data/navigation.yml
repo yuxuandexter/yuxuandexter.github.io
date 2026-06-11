@@ -5,11 +5,7 @@
 # prevent it from being included in the site.
 
 main:
-  - title: "About Me"
+  - title: "Home"
     url: /
 
-  - title: "Blogs"
-    url: /year-archive/
-
-  # Note: Publications, Projects, Experience, CV accessible via homepage scrolling
-  # Separate pages still accessible via direct URLs for SEO
+  # Keep the primary navigation minimal. Additional pages remain available by direct URL.

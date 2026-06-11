@@ -1,9 +1,14 @@
-- date: 2025-02-13
-  title: "Incoming to Google as a Software Engineering Intern"
+- date: 2026-06-15
+  title: "Starting as a Software Engineering Intern at Google."
   icon: "fa-briefcase"
-  type: "award"
+  type: "career"
 
-- date: 2025-01-26
+- date: 2026-03-01
+  title: "Incoming Ph.D. student at UC San Diego HDSI, advised by Prof. Hao Zhang."
+  icon: "fa-graduation-cap"
+  type: "education"
+
+- date: 2026-01-26
   title: "LMGame-Bench: How Good are LLMs at Playing Games? is accepted to ICLR 2026"
   icon: "fa-file-text"
   type: "publication"

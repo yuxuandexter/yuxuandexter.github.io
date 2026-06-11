@@ -1,0 +1,49 @@
+# Auto-updated by scripts/update_github_metrics.js.
+# Values are generated at build time and used as homepage metadata.
+updated_at: "2026-06-11T23:11:34.329Z"
+
+gamingagent:
+  repo: "lmgame-org/GamingAgent"
+  stars: 938
+  forks: 101
+  total_commits: 554
+  user_commits: 254
+  metrics:
+    - "top contributor"
+    - "254 commits"
+    - "938 stars"
+    - "ICLR 2026"
+
+nanorollout:
+  repo: "cocoa-org/NanoRollout"
+  stars: 29
+  forks: 3
+  total_commits: 30
+  user_commits: null
+  metrics:
+    - "29 stars"
+    - "500-worker SWE-Bench eval"
+    - "300K+ trajectories"
+
+grl:
+  repo: "lmgame-org/GRL"
+  stars: 64
+  forks: 12
+  total_commits: 164
+  user_commits: 164
+  metrics:
+    - "164 commits"
+    - "64 stars"
+    - "multi-turn RL"
+
+tunix:
+  repo: "google/tunix"
+  stars: 2333
+  forks: 307
+  total_commits: 1484
+  user_commits: 11
+  metrics:
+    - "11 commits"
+    - "2.3k stars"
+    - "Google open source"
+    - "LLM post-training"
