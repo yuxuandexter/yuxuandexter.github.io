@@ -1,0 +1,107 @@
+last_checked: "2026-07-19"
+
+milestones:
+  - venue: "ASPLOS ’27"
+    cycle: "September cycle"
+    area: systems
+    area_label: "Systems"
+    milestone: "Full paper"
+    deadline: "2026-09-10T11:59:00Z"
+    deadline_display: "Sep 9, 2026 · 11:59 pm AoE"
+    source_url: "https://www.asplos-conference.org/asplos2027/cfp/"
+    source_label: "Official CFP"
+
+  - venue: "NSDI ’27"
+    cycle: "Fall"
+    area: systems
+    area_label: "Systems"
+    milestone: "Abstract / title registration"
+    deadline: "2026-09-11T03:59:00Z"
+    deadline_display: "Sep 10, 2026 · 11:59 pm EDT"
+    source_url: "https://www.usenix.org/conference/nsdi27/call-for-papers"
+    source_label: "Official CFP"
+
+  - venue: "NSDI ’27"
+    cycle: "Fall"
+    area: systems
+    area_label: "Systems"
+    milestone: "Full paper"
+    deadline: "2026-09-18T03:59:00Z"
+    deadline_display: "Sep 17, 2026 · 11:59 pm EDT"
+    source_url: "https://www.usenix.org/conference/nsdi27/call-for-papers"
+    source_label: "Official CFP"
+
+  - venue: "OSDI ’27"
+    area: systems
+    area_label: "Systems"
+    milestone: "Abstract registration"
+    deadline: "2026-12-01T22:59:00Z"
+    deadline_display: "Dec 1, 2026 · 5:59 pm EST"
+    source_url: "https://www.usenix.org/conference/osdi27/call-for-papers"
+    source_label: "Official CFP"
+
+  - venue: "OSDI ’27"
+    area: systems
+    area_label: "Systems"
+    milestone: "Full paper"
+    deadline: "2026-12-08T22:59:00Z"
+    deadline_display: "Dec 8, 2026 · 5:59 pm EST"
+    source_url: "https://www.usenix.org/conference/osdi27/call-for-papers"
+    source_label: "Official CFP"
+
+planning_markers:
+  - venue: "ICLR ’27"
+    area: ai
+    area_label: "AI / ML"
+    milestone: "Full paper"
+    deadline: "2026-09-25T11:59:00Z"
+    deadline_display: "Sep 24, 2026 · 11:59 pm AoE"
+    source_url: "https://iclr.cc/Conferences/2026/CallForPapers"
+    source_label: "Past CFP"
+    basis_label: "Past-cycle basis"
+    basis_cycle: "ICLR ’26"
+
+  - venue: "MLSys ’27"
+    area: bridge
+    area_label: "ML × Systems"
+    milestone: "Full paper"
+    deadline: "2026-10-30T20:00:00Z"
+    deadline_display: "Oct 30, 2026 · 8:00 pm UTC"
+    source_url: "https://mlsys.org/Conferences/2026/CallForPapers"
+    source_label: "Past CFP"
+    basis_label: "Past-cycle basis"
+    basis_cycle: "MLSys ’26"
+
+  - venue: "ICML ’27"
+    area: ai
+    area_label: "AI / ML"
+    milestone: "Full paper"
+    deadline: "2027-01-29T11:59:00Z"
+    deadline_display: "Jan 28, 2027 · 11:59 pm AoE"
+    source_url: "https://icml.cc/Conferences/2026/CallForPapers"
+    source_label: "Past CFP"
+    basis_label: "Past-cycle basis"
+    basis_cycle: "ICML ’26"
+
+  - venue: "COLM ’27"
+    area: ai
+    area_label: "AI / ML"
+    milestone: "Full paper"
+    deadline: "2027-04-01T11:59:00Z"
+    deadline_display: "Mar 31, 2027 · 11:59 pm AoE"
+    source_url: "https://colmweb.org/dates.html"
+    source_label: "Past CFP"
+    basis_label: "Past-cycle basis"
+    basis_cycle: "COLM ’26"
+    time_basis_note: "The prior official dates page specified the date but not a time; 11:59 pm AoE is a planning convention."
+
+  - venue: "NeurIPS ’27"
+    area: ai
+    area_label: "AI / ML"
+    milestone: "Full paper"
+    deadline: "2027-05-07T11:59:00Z"
+    deadline_display: "May 6, 2027 · 11:59 pm AoE"
+    source_url: "https://neurips.cc/Conferences/2026/CallForPapers"
+    source_label: "Past CFP"
+    basis_label: "Past-cycle basis"
+    basis_cycle: "NeurIPS ’26"

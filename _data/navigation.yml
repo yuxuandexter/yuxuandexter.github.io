@@ -7,5 +7,7 @@
 main:
   - title: "Home"
     url: /
+  - title: "Academic Deadlines"
+    url: /academic-deadlines/
 
   # Keep the primary navigation minimal. Additional pages remain available by direct URL.
