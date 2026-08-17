@@ -1,17 +1,17 @@
 # Auto-updated by scripts/update_github_metrics.js.
 # Values are generated at build time and used as homepage metadata.
-updated_at: "2026-08-10T11:27:57.174Z"
+updated_at: "2026-08-17T10:51:48.601Z"
 
 gamingagent:
   repo: "lmgame-org/GamingAgent"
-  stars: 962
+  stars: 967
   forks: 104
   total_commits: 554
   user_commits: 254
   metrics:
     - "top contributor"
     - "254 commits"
-    - "962 stars"
+    - "967 stars"
     - "ICLR 2026"
 
 nanorollout:
@@ -27,20 +27,20 @@ nanorollout:
 
 grl:
   repo: "lmgame-org/GRL"
-  stars: 65
+  stars: 66
   forks: 12
   total_commits: 164
   user_commits: 164
   metrics:
     - "164 commits"
-    - "65 stars"
+    - "66 stars"
     - "multi-turn RL"
 
 tunix:
   repo: "google/tunix"
-  stars: 2396
-  forks: 330
-  total_commits: 1723
+  stars: 2407
+  forks: 333
+  total_commits: 1755
   user_commits: 11
   metrics:
     - "11 commits"
