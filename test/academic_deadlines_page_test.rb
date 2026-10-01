@@ -15,6 +15,17 @@ class AcademicDeadlinesPageTest < Minitest::Test
     @page = File.join(DESTINATION, "academic-deadlines", "index.html")
   end
 
+  def test_show_past_control_has_quiet_inline_styling
+    assert @status.success?, "Jekyll build failed:\n#{@stdout}\n#{@stderr}"
+    css = File.read(File.join(DESTINATION, "assets/css/main.css"))
+    control = css[/\.academic-deadlines__show-past\{([^}]+)\}/, 1]
+    refute_nil control, "Show-past checkbox needs scoped styling rather than full-size form defaults"
+    assert_includes control, "display:inline-flex"
+    assert_includes control, "align-items:center"
+    assert_includes control, "font-size:"
+    assert_includes control, "color:"
+  end
+
   def test_filtering_can_hide_nonmatching_entries
     styles = File.read("_sass/_academic-deadlines.scss")
 
@@ -27,7 +38,25 @@ class AcademicDeadlinesPageTest < Minitest::Test
     html = File.read(@page)
     assert_includes html, "Past-cycle basis"
     assert_includes html, "ICLR ’27"
-    assert_includes html, "Sep 24, 2026 · 11:59 pm AoE"
+    assert_includes html, "Sep 18, 2026 · AoE"
+    assert_includes html, "Sep 25, 2026 · AoE"
+    refute_includes html, "Sep 24, 2026"
+    rows = html.scan(/<article class="academic-deadlines__row.*?<\/article>/m)
+    iclr_rows = rows.select { |row| row.include?("ICLR ’27") }
+    assert_equal 2, iclr_rows.length
+    iclr_rows.each do |row|
+      assert_includes row, "https://iclr.cc/Conferences/2027/CallForPapers"
+      assert_includes row, "Official CFP"
+      refute_includes row, "Past-cycle basis"
+      refute_includes row, "11:59 pm"
+    end
+    assert_includes iclr_rows[0], "Abstract registration"
+    assert_includes iclr_rows[0], 'data-deadline="2026-09-19T11:59:00Z"'
+    assert_includes iclr_rows[1], 'data-deadline="2026-09-26T11:59:00Z"'
+    assert_includes html, "end-of-day AoE convention"
+    deadlines = rows.map { |row| row[/data-deadline="([^"]+)"/, 1] }
+    assert_equal deadlines.sort, deadlines
+    assert_equal 11, rows.length
     assert_operator html.index("NSDI ’27"), :<, html.index("ICLR ’27")
     refute_includes html, "Awaiting official CFP"
     refute_includes html, ">TBD<"

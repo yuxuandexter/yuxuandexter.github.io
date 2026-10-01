@@ -43,6 +43,21 @@
     }
   }
 
+  &__show-past {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin: 0 0 0 auto;
+    color: $gray;
+    font-size: $type-size-6;
+    font-weight: 400;
+    cursor: pointer;
+
+    input {
+      margin: 0;
+    }
+  }
+
   &__rail {
     border-top: 1px solid $text-color;
   }

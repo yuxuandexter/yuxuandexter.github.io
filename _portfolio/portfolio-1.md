@@ -2,6 +2,8 @@
 title: "LMGame-GamingAgent"
 excerpt: "LLM/VLM gaming agents and model evaluation through games.<br/><img src='/images/gamingAgent.png'>"
 collection: portfolio
+redirect_to: /#gamingagent-grl
+sitemap: false
 ---
 
 [GitHub Repository](https://github.com/lmgame-org/GamingAgent) ![GitHub stars](https://img.shields.io/github/stars/lmgame-org/GamingAgent?style=social)

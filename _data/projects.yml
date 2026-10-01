@@ -1,82 +1,64 @@
-- name: "GamingAgent"
-  description: "LLM/VLM gaming agents and model evaluation through games."
+- id: fastafd
+  name: "FastAFD — Attention–FFN Disaggregation for MoE Inference"
+  role_label: "Co-lead"
+  url: "https://haoailab.com/blogs/fastafd/"
+  description: >-
+    FastAFD separates KV-cache-constrained attention from MoE expert execution,
+    aggregating tokens across attention workers to keep expert batches large.
+    Its runtime overlaps communication, computation, and scheduling to make
+    disaggregation effective on GB200 NVL72. On Qwen3-235B-A22B-FP8 and MiniMax-M2.5,
+    it achieves **1.35–1.45× per-GPU steady-state decode throughput** over a tuned
+    colocated vLLM baseline.
+  links:
+    - label: "Technical Blog"
+      url: "https://haoailab.com/blogs/fastafd/"
+    - label: "Code"
+      url: "https://github.com/hao-ai-lab/FastAFD"
+
+- id: gamingagent-grl
+  name: "GamingAgent & GRL — Game-Based Evaluation and Multi-Turn RL"
+  role_label: "GamingAgent: Co-lead · GRL: Lead"
   url: "https://github.com/lmgame-org/GamingAgent"
-  type: "github"
-  metrics_key: "gamingagent"
-  role: "co-lead"
-  role_label: "Co-lead"
-  metrics:
-    - "top contributor"
-    - "254 commits"
-    - "938 stars"
-    - "ICLR 2026"
+  description: >-
+    GamingAgent combines standardized game environments with a modular
+    perception–memory–reasoning harness, enabling comparisons between bare
+    LLM/VLM policies and agentic workflows. GRL extends this ecosystem from
+    evaluation to multi-turn reinforcement learning, with training backends
+    built on VERL and Tunix.
   links:
-    - label: "GitHub"
+    - label: "GamingAgent"
       url: "https://github.com/lmgame-org/GamingAgent"
+    - label: "GRL"
+      url: "https://github.com/lmgame-org/GRL"
     - label: "Paper"
-      url: "https://arxiv.org/pdf/2505.15146v2"
-    - label: "Website"
-      url: "https://lmgame.org"
-
-- name: "NanoRollout"
-  description: "Scalable rollout infrastructure for agentic inference and LLM reinforcement learning."
-  url: "https://github.com/cocoa-org/NanoRollout"
-  type: "github"
-  metrics_key: "nanorollout"
-  role: "work"
-  role_label: "Contributor"
-  metrics:
-    - "29 stars"
-    - "500-worker SWE-Bench eval"
-    - "300K+ trajectories"
-  links:
-    - label: "GitHub"
-      url: "https://github.com/cocoa-org/NanoRollout"
-    - label: "Blog"
-      url: "https://cocoa-org.notion.site/nanorollout"
-
-- name: "Ace Attorney AI Gameplay Demo"
-  description: "AI agent playing Ace Attorney, demonstrating game-grounded agent evaluation."
-  url: "https://x.com/haoailab/status/1912231343372812508"
-  type: "demo"
-  metric: "1M views"
-  role: "co-lead"
-  role_label: "Co-lead"
-  metrics:
-    - "1M+ views"
-    - "game-grounded agent demo"
-  links:
-    - label: "Demo"
+      url: "https://arxiv.org/abs/2505.15146"
+    - label: "Ace Attorney Demo"
       url: "https://x.com/haoailab/status/1912231343372812508"
 
-- name: "GRL"
-  description: "Multi-turn RL training system for post-training language models on games."
-  url: "https://github.com/lmgame-org/GRL"
-  type: "github"
-  metrics_key: "grl"
-  role: "lead"
-  role_label: "Lead"
-  metrics:
-    - "164 commits"
-    - "64 stars"
-    - "multi-turn RL"
+- id: nanorollout
+  name: "NanoRollout — Scaling Digital Agent RL and Distillation"
+  role_label: "Equal contribution"
+  url: "https://cocoa-org.notion.site/nanorollout"
+  description: >-
+    We use NanoRollout to study how rollout scale and training-data composition
+    affect digital agents. In matched-recipe SWE-agent experiments, scaling
+    rollout batches to **4,096** improves RL performance. Our distillation study
+    also exposes a key failure mode: **single-harness training can perform worse
+    than the base model under an unseen harness**. These findings motivate
+    multi-harness trajectory mixtures, used to train **Mocha-Coder-32B**.
   links:
-    - label: "GitHub"
-      url: "https://github.com/lmgame-org/GRL"
-  hidden: true
+    - label: "Blog"
+      url: "https://cocoa-org.notion.site/nanorollout"
+    - label: "Code"
+      url: "https://github.com/cocoa-org/NanoRollout"
 
-- name: "Tunix"
-  description: "A lightweight JAX-based library for LLM post-training."
+- id: tunix
+  name: "Tunix — LLM Post-Training on TPUs"
+  role_label: "Google internship"
   url: "https://github.com/google/tunix"
-  type: "github"
-  metrics_key: "tunix"
-  role: "contribute"
-  role_label: "Contributor"
-  metrics:
-    - "11 commits"
-    - "2.3k stars"
-    - "Google open source"
-    - "LLM post-training"
+  description: >-
+    During my Google internship, I implemented sequence packing for LLM training
+    on TPUs, reducing padding overhead and improving training efficiency.
   links:
-    - label: "GitHub"
+    - label: "Tunix"
       url: "https://github.com/google/tunix"

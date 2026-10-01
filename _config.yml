@@ -11,7 +11,7 @@ locale                   : "en-US"
 title                    : "Yuxuan Zhang"
 title_separator          : "-"
 name                     : &name "Yuxuan Zhang"
-description              : &description "Incoming Ph.D. student at UC San Diego HDSI working on agentic inference and LLM reinforcement learning."
+description              : &description "Ph.D. student in Data Science at UC San Diego working on systems for LLM inference and reinforcement learning."
 url                      : https://yuxuandexter.github.io # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "yuxuandexter/yuxuandexter.github.io"
@@ -24,7 +24,7 @@ author:
   avatar           : "profile_naive_penguine.jpg"
   name             : "Yuxuan Zhang"
   pronouns         : "he/his"  
-  bio              : "Incoming Ph.D. student at UC San Diego HDSI. Agentic inference and LLM reinforcement learning." 
+  bio              : "Ph.D. student in Data Science at UC San Diego. LLM inference and RL systems."
   location         : "La Jolla, CA"
   employer         : "UC San Diego"
   uri              : "https://yuxuandexter.github.io" # URL
@@ -183,6 +183,29 @@ exclude:
   - README
   - scripts
   - tasks
+  - test
+  - CLAUDE.md
+  - CONTRIBUTING.md
+  - design_ideas.md
+  - deprecated
+  - markdown_generator
+  - execute_script.sh
+  - talkmap
+  - talkmap.py
+  - talkmap.ipynb
+  - _talks
+  - _teaching
+  - _pages/archive-layout-with-content.md
+  - _pages/category-archive.html
+  - _pages/collection-archive.html
+  - _pages/markdown.md
+  - _pages/non-menu-page.md
+  - _pages/page-archive.html
+  - _pages/tag-archive.html
+  - _pages/talkmap.html
+  - _pages/talks.html
+  - _pages/teaching.html
+  - _pages/year-archive.html
   - tmp
   - vendor
 keep_files:
@@ -301,6 +324,7 @@ timezone: Etc/UTC # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 # Plugins
 plugins:
   - jekyll-feed
+  - jekyll-redirect-from
   - jekyll-gist
   - jekyll-paginate
   - jekyll-sitemap
@@ -309,6 +333,7 @@ plugins:
 # Mimic GitHub Pages with --safe
 whitelist:
   - jekyll-feed
+  - jekyll-redirect-from
   - jekyll-gist
   - jekyll-paginate
   - jekyll-sitemap

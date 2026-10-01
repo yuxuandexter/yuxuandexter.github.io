@@ -49,18 +49,29 @@ milestones:
     source_url: "https://www.usenix.org/conference/osdi27/call-for-papers"
     source_label: "Official CFP"
 
-planning_markers:
+  - venue: "ICLR ’27"
+    area: ai
+    area_label: "AI / ML"
+    milestone: "Abstract registration"
+    deadline: "2026-09-19T11:59:00Z"
+    deadline_display: "Sep 18, 2026 · AoE"
+    source_url: "https://iclr.cc/Conferences/2027/CallForPapers"
+    source_label: "Official CFP"
+    dates_url: "https://iclr.cc/Conferences/2027/Dates"
+    time_basis_note: "The official source gives a date and AoE, not a cutoff minute; the countdown uses an end-of-day AoE convention (11:59 pm), not an officially stated time."
+
   - venue: "ICLR ’27"
     area: ai
     area_label: "AI / ML"
     milestone: "Full paper"
-    deadline: "2026-09-25T11:59:00Z"
-    deadline_display: "Sep 24, 2026 · 11:59 pm AoE"
-    source_url: "https://iclr.cc/Conferences/2026/CallForPapers"
-    source_label: "Past CFP"
-    basis_label: "Past-cycle basis"
-    basis_cycle: "ICLR ’26"
+    deadline: "2026-09-26T11:59:00Z"
+    deadline_display: "Sep 25, 2026 · AoE"
+    source_url: "https://iclr.cc/Conferences/2027/CallForPapers"
+    source_label: "Official CFP"
+    dates_url: "https://iclr.cc/Conferences/2027/Dates"
+    time_basis_note: "The official source gives a date and AoE, not a cutoff minute; the countdown uses an end-of-day AoE convention (11:59 pm), not an officially stated time."
 
+planning_markers:
   - venue: "MLSys ’27"
     area: bridge
     area_label: "ML × Systems"

@@ -2,6 +2,8 @@
 title: "GRL (LLM Game Multi-Turn-RL-Training)"
 excerpt: "RL Train LLM/VLM during Multi-Turn Environments"
 collection: portfolio
+redirect_to: /#gamingagent-grl
+sitemap: false
 ---
 
 [GitHub Repository](https://github.com/lmgame-org/GRL/tree/main)

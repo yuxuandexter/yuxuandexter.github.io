@@ -1,7 +1,11 @@
 education:
-  - degree: "M.S. in Computer Science"
+  - degree: "Ph.D. in Data Science"
     institution: "University of California, San Diego"
-    period: "2024 - Present"
+    period: "2026 - Present"
+
+  - degree: "Graduate study in Computer Science (no degree)"
+    institution: "University of California, San Diego"
+    period: "2025 - 2026"
 
   - degree: "B.S. in Data Science"
     institution: "University of California, San Diego"

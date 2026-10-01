@@ -437,7 +437,7 @@
     }
   }
 
-  @include breakpoint($small) {
+  @media screen and (max-width: $small) {
     flex-direction: column;
     gap: 0.25em;
 
@@ -764,6 +764,24 @@
 }
 
 .page--home {
+  .work-item__meta,
+  .publication-item__authors,
+  .publication-item__meta {
+    margin: 0;
+  }
+
+  .work-item__description {
+    margin: 0.25rem 0 0;
+  }
+
+  .publication-item__title {
+    margin: 0 0 0.18rem;
+  }
+
+  .item-links {
+    margin: 0.38rem 0 0;
+  }
+
   .news-item {
     gap: 1.25rem;
     margin-bottom: 0.55rem;
@@ -849,6 +867,7 @@
   }
 }
 
+.publication-item__authors,
 .publication-item__meta,
 .publication-item__description {
   margin: 0;
@@ -863,6 +882,11 @@
 .publication-item__description {
   margin-top: 0.22rem;
   color: $text-color;
+}
+
+.news-link {
+  margin-left: 0.5em;
+  font-size: 0.9em;
 }
 
 .item-links {
@@ -887,6 +911,10 @@
 @media screen and (max-width: $small) {
   .page--home {
     max-width: 100%;
+
+    .news-item {
+      gap: 0.25rem;
+    }
   }
 
   .home-intro {

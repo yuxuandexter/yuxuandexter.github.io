@@ -1,14 +1,24 @@
+- date: 2026-07-06
+  title: "We released **FastAFD**, an attention–FFN disaggregated inference system for MoE models."
+  icon: "fa-code"
+  type: "release"
+  links:
+    - label: "Blog"
+      url: "https://haoailab.com/blogs/fastafd/"
+    - label: "Code"
+      url: "https://github.com/hao-ai-lab/FastAFD"
+
 - date: 2026-06-15
-  title: "Starting as a Software Engineering Intern at Google."
+  title: "I started a Software Engineering internship at Google."
   icon: "fa-briefcase"
   type: "career"
 
 - date: 2026-03-01
-  title: "Incoming Ph.D. student at UC San Diego HDSI, advised by Prof. Hao Zhang."
+  title: "I announced my upcoming Ph.D. at UC San Diego HDSI, advised by Prof. Hao Zhang."
   icon: "fa-graduation-cap"
   type: "education"
 
 - date: 2026-01-26
-  title: "LMGame-Bench: How Good are LLMs at Playing Games? is accepted to ICLR 2026"
+  title: "**LMGame-Bench: How Good are LLMs at Playing Games?** was accepted to ICLR 2026."
   icon: "fa-file-text"
   type: "publication"

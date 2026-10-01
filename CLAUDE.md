@@ -2,8 +2,19 @@
 
 ## Owner
 
-Yuxuan Zhang — M.S. in CS @ UC San Diego, advised by Prof. Hao Zhang and Prof. Haojian Jin.
-Research focus: AI Agents (building agents + agentic RL training).
+Yuxuan Zhang — Ph.D. student in Data Science @ UC San Diego, advised by Prof. Hao Zhang.
+Research focus: systems for LLM inference and reinforcement learning.
+Previously interned at Google on the Tunix team. CS graduate study (2025–2026) did not result in an M.S. degree.
+
+## Content and release boundaries
+
+- Homepage order: intro → Recent News → Selected Work → Publications.
+- Selected Work order: FastAFD → GamingAgent & GRL → NanoRollout → Tunix (`_data/projects.yml`).
+- NanoRollout emphasizes the blog's training findings and equal-contribution authorship, not commit counts.
+- Tunix may describe sequence packing during the Google internship; do not add private performance numbers or training–inference alignment claims without approval. The project repository link is not proof the internship work has been merged publicly.
+- Do not add a CV link. The existing `/cv/` page and PDF remain unchanged unless separately requested.
+- Preview → user approval → edit and verify → explicit commit/push/deploy authorization. A push to `master` may publish the website.
+- Exclude template/deprecated content and maintenance files from the public build rather than deleting historical sources.
 
 ## Project Overview
 
@@ -26,16 +37,16 @@ Built with **Jekyll** using the **Academic Pages** theme (Minimal Mistakes fork)
 | About / Bio          | Active       | Short intro, education, interests — on homepage    |
 | Recent News          | Active       | Timeline of updates — data file: _data/news.yml    |
 | Publications         | Active       | Inline on homepage + detail pages for SEO          |
-| Open-Source Projects | Active       | Feature grid on homepage (uses _portfolio/)        |
-| Experience           | Active       | Education + Research — data file: _data/experience.yml |
-| Blog                 | Planned      | Section placeholder on homepage, enable when ready |
-| CV                   | Active       | Separate page with embedded PDF                    |
+| Selected Work        | Active       | Ordered homepage list from `_data/projects.yml`; old portfolio URLs redirect |
+| Experience           | Data only    | `_data/experience.yml` is not rendered on the homepage |
+| Blog                 | Not enabled  | Link external technical blogs from Selected Work |
+| CV                   | Legacy       | No homepage/nav link; page and PDF require separate edit approval |
 
 ## Tech Stack
 
 | Layer       | Tool                                           |
 |-------------|-------------------------------------------------|
-| Framework   | Jekyll 4.x (Ruby)                              |
+| Framework   | Jekyll 3.9.x (Ruby, via `github-pages`)                              |
 | Theme       | Academic Pages (Minimal Mistakes fork)          |
 | Styling     | SCSS (`_sass/`), compiled to compressed CSS     |
 | JS          | jQuery 3.7.1, FitVids, Magnific Popup, Smooth Scroll |
@@ -76,7 +87,7 @@ Built with **Jekyll** using the **Academic Pages** theme (Minimal Mistakes fork)
 - **Homepage content**: `_pages/about.md`
 - **Navigation links**: `_data/navigation.yml` (uncomment/add entries)
 - **Add a publication**: create `_publications/YYYY-MM-DD-slug.md`
-- **Add a project**: create `_portfolio/portfolio-N.md`
+- **Selected Work**: edit `_data/projects.yml`; `_portfolio/` preserves historical redirects only
 - **Add a blog post**: create `_posts/YYYY-MM-DD-title.md`
 - **Update CV**: replace `files/Yuxuan_Resume.pdf`
 
@@ -147,15 +158,13 @@ Display as timeline on homepage with most recent 5-7 items. Types of news to inc
 
 ```yaml
 education:
-  - degree: "M.S. in Computer Science"
+  - degree: "Ph.D. in Data Science"
     institution: "UC San Diego"
-    period: "2024 - Present"
+    period: "2026 - Present"
     advisors:
       - name: "Prof. Hao Zhang"
         url: "https://cseweb.ucsd.edu/~haozhang/"
-      - name: "Prof. Haojian Jin"
-        url: "https://www.haojianj.in/"
-    focus: "AI Agents (building agents + agentic RL training)"
+    focus: "LLM inference and RL systems"
 
   - degree: "B.S. in Data Science"
     institution: "UC San Diego (Halıcıoğlu Data Science Institute)"
@@ -188,7 +197,11 @@ When ready to publish blog posts:
 
 ```bash
 bundle install          # first time only
-jekyll serve -l -H localhost   # serves at http://localhost:4000
+bundle exec jekyll build --safe
+bundle exec ruby test/homepage_refresh_test.rb
+bundle exec ruby test/academic_deadlines_page_test.rb
+# Optional real-browser homepage check; see test/homepage_browser_test.cjs for setup.
+bundle exec jekyll serve --host 127.0.0.1   # http://127.0.0.1:4000
 ```
 
 ### Docker alternative
@@ -226,7 +239,7 @@ When making changes to this site:
 12. **Data files for simple content** — Use `_data/` for news and experience (no detail pages needed).
 13. **Collections for rich content** — Use `_publications/` and `_portfolio/` for content that needs detail pages and SEO.
 14. **Minimal navigation** — Keep header nav to 3-4 links max. Sections accessed via homepage scrolling.
-15. **Open-Source Projects** — Conceptually refers to the `_portfolio/` collection (keep technical implementation unchanged).
+15. **Selected Work** — `_data/projects.yml` owns the content and order. Generated GitHub metrics must not override the approved narrative.
 
 ## Future Roadmap (User's Intent)
 
@@ -235,5 +248,5 @@ When making changes to this site:
 - [x] Consolidate homepage to be the single main page with all key info
 - [x] Rename Portfolio to "Open-Source Projects" conceptually
 - [ ] Start blog section when content is ready
-- [x] Keep nav bar lean: Publications, Projects, CV
+- [x] Keep nav bar lean: Home, Academic Deadlines
 - [ ] Potentially simplify/customize the theme for a more personal aesthetic
