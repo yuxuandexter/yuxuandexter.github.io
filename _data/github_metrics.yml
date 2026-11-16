@@ -1,11 +1,11 @@
 # Auto-updated by scripts/update_github_metrics.js.
 # Values are generated at build time and used as homepage metadata.
-updated_at: "2026-11-09T20:51:03.043Z"
+updated_at: "2026-11-16T20:33:33.889Z"
 
 gamingagent:
   repo: "lmgame-org/GamingAgent"
-  stars: 1005
-  forks: 107
+  stars: 1004
+  forks: 108
   total_commits: 554
   user_commits: 254
   metrics:
@@ -38,9 +38,9 @@ grl:
 
 tunix:
   repo: "google/tunix"
-  stars: 2504
-  forks: 387
-  total_commits: 2504
+  stars: 2511
+  forks: 388
+  total_commits: 2590
   user_commits: 11
   metrics:
     - "11 commits"
