@@ -8,12 +8,11 @@ Previously interned at Google on the Tunix team. CS graduate study (2025–2026)
 
 ## Content and release boundaries
 
-- Homepage order (ultra-minimalist, zero duplication): intro → Publications → Selected Systems & Technical Blogs.
-- Publications (`_publications/`, sorted reverse-chronologically by `date`): FastAFD (`arXiv:2611.07149`, 3 co-first `*`) → lmgame-Bench (`ICLR 2026`, `*/†`, `#gamingagent-grl` anchor for historical portfolio redirects) → General Modular Harness (`ICML MAS Workshop 2025`, 2 co-first `*`).
-- Selected Systems & Technical Blogs (`_data/projects.yml`, non-overlapping 1-sentence summaries): Zero-TIM in Tunix → Towards Verifiable LLM Infra (vstack & VeriServe) → NanoRollout.
+- Homepage order (ultra-minimalist, unified reverse-chronological timeline): intro → Publications & Technical Blogs.
+- Publications & Technical Blogs (`_data/projects.yml`, pure 4-line academic format: Title → Authors → Venue/Date → Chips; zero role-badge clutter or prose paragraphs): Zero-TIM (`Google Developers Blog, Nov 2026`) → Towards Verifiable LLM Infra (`Hao AI Lab Blog, Nov 2026`) → FastAFD (`arXiv:2611.07149`, 3 co-first `*`) → NanoRollout (`Technical Blog, 2026`, 3 co-first `*`) → lmgame-Bench (`ICLR 2026`, `*/†`, `#gamingagent-grl` anchor for historical portfolio redirects) → General Modular Harness (`ICML MAS Workshop 2025`, 2 co-first `*`).
+- `_publications/` retains the 3 formal papers/preprints for SEO detail pages and `/publications/`.
 - Keep the Bio concise: clarify that Tunix is Google's JAX-native LLM post-training and RL framework on TPUs without repeating project details already listed below.
-- NanoRollout emphasizes the blog's training findings and equal-contribution authorship, not commit counts.
-- Tunix covers the publicly released Zero-TIM Google Developers Blog (`tunix/zero_tim_kernel`) and sequence packing from the Google internship; do not add unpublished internal metrics without approval.
+- Align masthead, homepage body, and footer to a centered `740px` reading column with zero fade-in animation delays.
 - Keep `Academic Deadlines` in primary nav (`_data/navigation.yml`) as a personal deadline tracker across Systems, AI/ML, ML × Systems, and Verification / PL.
 - Do not add a CV link. The existing `/cv/` page and PDF remain unchanged unless separately requested.
 - Preview → user approval → edit and verify → explicit commit/push/deploy authorization. A push to `master` may publish the website.

@@ -24,16 +24,12 @@ const { chromium } = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
       const state = await page.evaluate(() => ({
         width: innerWidth,
         scrollWidth: document.documentElement.scrollWidth,
-        order: [...document.querySelectorAll('.work-item')].map(e => e.id),
-        pubCount: document.querySelectorAll('.publication-item').length,
-        metaMargin: parseFloat(getComputedStyle(document.querySelector('.work-item__meta')).marginBottom),
+        order: [...document.querySelectorAll('.publication-item')].map(e => e.id),
         imageLoaded: [...document.querySelectorAll('img')].every(i => i.complete && i.naturalWidth > 0),
         badLinks: [...document.querySelectorAll('a')].filter(a => a.href.startsWith(location.origin) && a.hash && a.pathname === location.pathname && !document.getElementById(a.hash.slice(1))).map(a => a.href)
       }));
       assert.ok(state.scrollWidth <= width, `horizontal overflow: ${JSON.stringify(state)}`);
-      assert.deepEqual(state.order, ['tunix', 'verifiable-llm-infra', 'nanorollout']);
-      assert.equal(state.pubCount, 3);
-      assert.ok(state.metaMargin <= 8, 'Project role and description should not be separated by an empty paragraph-sized gap');
+      assert.deepEqual(state.order, ['tunix', 'verifiable-llm-infra', 'fastafd', 'nanorollout', 'gamingagent-grl', 'modular-harness']);
       assert.ok(state.imageLoaded);
       assert.deepEqual(state.badLinks, []);
       assert.deepEqual(errors, []);

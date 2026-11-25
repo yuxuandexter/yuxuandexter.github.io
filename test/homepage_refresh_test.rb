@@ -78,15 +78,23 @@ class HomepageRefreshTest < Minitest::Test
 
   def test_publications_show_authors_and_a_single_venue_year
     items = @home.css(".publication-item")
-    assert_equal 3, items.size
-    assert_equal "https://arxiv.org/abs/2611.07149", items[0].at_css(".publication-item__title a")["href"]
-    assert_equal "https://arxiv.org/abs/2505.15146", items[1].at_css(".publication-item__title a")["href"]
-    assert_equal "gamingagent-grl", items[1]["id"]
-    assert_equal 3, @home.css(".publication-item__authors strong").count { |n| n.text.include?("Yuxuan Zhang") }
-    assert_includes items[0].text, "Yichao Fu*, Yuxuan Zhang*, Minshen Zhang*"
-    assert_includes items[1].text, "Lanxiang Hu*, Mingjia Huo*, Yuxuan Zhang†, Haoyang Yu†"
-    assert_includes items[2].text, "Yuxuan Zhang*, Haoyang Yu*"
-    refute_includes items[1].text, "**LMGame-Bench**"
+    assert_equal 6, items.size
+    assert_equal [
+      "tunix",
+      "verifiable-llm-infra",
+      "fastafd",
+      "nanorollout",
+      "gamingagent-grl",
+      "modular-harness"
+    ], items.map { |n| n["id"] }
+    assert_equal 6, @home.css(".publication-item__authors strong").count { |n| n.text.include?("Yuxuan Zhang") }
+    assert_includes items[0].text, "Yuxuan Zhang, Lin Chai, Lance Wang, Tianshu Bao, Weiren Yu"
+    assert_includes items[1].text, "Yuxuan Zhang, Minshen Zhang, Junda Su, Yi Sun, Junda Chen, Hao Zhang"
+    assert_includes items[2].text, "Yichao Fu*, Yuxuan Zhang*, Minshen Zhang*"
+    assert_includes items[3].text, "Junli Wang*, Zhoujun Cheng*, Yuxuan Zhang*"
+    assert_includes items[4].text, "Lanxiang Hu*, Mingjia Huo*, Yuxuan Zhang†, Haoyang Yu†"
+    assert_includes items[5].text, "Yuxuan Zhang*, Haoyang Yu*"
+    refute_includes items[4].text, "**LMGame-Bench**"
     pages = [
       ["publication/2026-11-11-fastafd.html", "arXiv preprint, 2026", "https://arxiv.org/abs/2611.07149"],
       ["publication/2025-05-21-lmgame-bench-neurips-main-track.html", "ICLR 2026", "https://arxiv.org/abs/2505.15146"],
@@ -106,11 +114,14 @@ class HomepageRefreshTest < Minitest::Test
   end
 
   def test_homepage_matches_approved_identity_order_and_contributions
-    titles = @home.css(".work-item__title").map { |n| n.text.strip }
+    titles = @home.css(".publication-item__title").map { |n| n.text.strip }
     assert_equal [
-      "Zero-TIM in Tunix — Bitwise-Zero Train–Inference Mismatch on TPU",
-      "Towards Verifiable LLM Infra — vstack & VeriServe",
-      "NanoRollout — Scaling Digital Agent RL and Distillation"
+      "Unlocking Stable On-Policy RL on TPU with Bitwise-Zero Train–Inference Mismatch",
+      "Towards Verifiable LLM Infra",
+      "FastAFD: When Does Attention–FFN Disaggregation Pay on Rack-Scale NVLink?",
+      "NanoRollout: Scaling Digital Agent RL and Distillation",
+      "lmgame-Bench: How Good are LLMs at Playing Games?",
+      "General Modular Harness for LLM Agents in Multi-Turn Gaming Environments"
     ], titles
     intro = @home.at_css(".home-intro").text
     assert_includes intro, "Ph.D. student in Data Science"
@@ -119,25 +130,20 @@ class HomepageRefreshTest < Minitest::Test
     assert_includes intro, "JAX-native LLM post-training and RL framework on TPUs"
     refute_includes intro, "incoming"
     refute @home.css(".home-links a").any? { |a| a.text.strip == "CV" }
-    assert_equal ["Publications", "Selected Systems & Technical Blogs"], @home.css(".page__content h2").map { |n| n.text.strip }
+    assert_equal ["Publications & Technical Blogs"], @home.css(".page__content h2").map { |n| n.text.strip }
     assert_empty @home.css(".news-item")
     verifiable = @home.at_css("#verifiable-llm-infra")
     refute_nil verifiable
-    assert_includes verifiable.text, "Lead"
-    assert_includes verifiable.text, "vstack"
-    assert_includes verifiable.text, "VeriServe"
+    assert_includes verifiable.text, "Hao AI Lab Blog, Nov 2026"
     assert verifiable.css(".item-links a").any? { |a| a["href"] == "https://haoailab.com/blogs/verifiable-llm-infra/" }
-    nano = @home.at_css("#nanorollout")
-    refute_nil nano
-    assert_includes nano.text, "Equal contribution"
-    assert_includes nano.text, "single-harness training can perform worse than the base model"
-    assert_equal "Blog", nano.at_css(".item-links a").text
     tunix = @home.at_css("#tunix")
     refute_nil tunix
-    assert_includes tunix.text, "Zero-TIM"
-    assert_includes tunix.text, "sequence packing"
+    assert_includes tunix.text, "Google Developers Blog, Nov 2026"
     assert tunix.css(".item-links a").any? { |a| a["href"] == "https://developers.googleblog.com/unlocking-stable-on-policy-rl-on-tpu-with-bitwise-zero-traininference-mismatch/" }
     assert tunix.css(".item-links a").any? { |a| a["href"] == "https://github.com/google/tunix/tree/main/tunix/zero_tim_kernel" }
-    refute_match(/\d+ commits|top contributor|300K\+ trajectories/, @home.css(".work-list").text)
+    nano = @home.at_css("#nanorollout")
+    refute_nil nano
+    assert_equal "Blog", nano.at_css(".item-links a").text
+    refute_match(/\d+ commits|top contributor|300K\+ trajectories/, @home.css(".publication-list").text)
   end
 end

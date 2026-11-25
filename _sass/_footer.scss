@@ -15,25 +15,17 @@
   height: auto;
   /* sticky footer fix end */
   margin-top: 3em;
-  color: mix(#fff, $gray, 25%);
-  -webkit-animation: intro 0.3s both;
-          animation: intro 0.3s both;
-  -webkit-animation-delay: 0.45s;
-          animation-delay: 0.45s;
-  background-color: $lighter-gray;
-  border-top: 1px solid $light-gray;
+  color: #6e7781;
+  background-color: #ffffff;
+  border-top: 1px solid #eaeef2;
 
   footer {
     @include clearfix;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 1em;
-    max-width: 100%;
-    padding: 0 1em 1em;
-
-    @include breakpoint($x-large) {
-      max-width: $x-large;
-    }
+    margin-top: 0;
+    max-width: calc(740px + 2em);
+    padding: 1rem 1em 1.25rem;
   }
 
   a {

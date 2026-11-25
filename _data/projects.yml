@@ -1,11 +1,13 @@
 - id: tunix
-  name: "Zero-TIM in Tunix — Bitwise-Zero Train–Inference Mismatch on TPU"
-  role_label: "Google internship · First author"
+  title: "Unlocking Stable On-Policy RL on TPU with Bitwise-Zero Train–Inference Mismatch"
   url: "https://developers.googleblog.com/unlocking-stable-on-policy-rl-on-tpu-with-bitwise-zero-traininference-mismatch/"
-  description: >-
-    Batch-invariant Pallas kernels and ordered cross-shard reductions achieving
-    bitwise-identical bfloat16 logprobs across 64 TPU v5p chips (62.7% → 88.2%
-    FrozenLake solve rate); also implemented TPU sequence packing.
+  authors:
+    - "Yuxuan Zhang"
+    - "Lin Chai"
+    - "Lance Wang"
+    - "Tianshu Bao"
+    - "Weiren Yu"
+  venue: "Google Developers Blog, Nov 2026"
   links:
     - label: "Google Blog"
       url: "https://developers.googleblog.com/unlocking-stable-on-policy-rl-on-tpu-with-bitwise-zero-traininference-mismatch/"
@@ -15,13 +17,16 @@
       url: "https://github.com/google/tunix"
 
 - id: verifiable-llm-infra
-  name: "Towards Verifiable LLM Infra — vstack & VeriServe"
-  role_label: "Lead"
+  title: "Towards Verifiable LLM Infra"
   url: "https://haoailab.com/blogs/verifiable-llm-infra/"
-  description: >-
-    Five-stage agentic formal verification workflow (uncovering concurrency bugs
-    in vLLM and SGLang) and a formally verified disaggregated PD serving engine
-    (+0.18% mean p50 TPOT overhead on GB200).
+  authors:
+    - "Yuxuan Zhang"
+    - "Minshen Zhang"
+    - "Junda Su"
+    - "Yi Sun"
+    - "Junda Chen"
+    - "Hao Zhang"
+  venue: "Hao AI Lab Blog, Nov 2026"
   links:
     - label: "Blog"
       url: "https://haoailab.com/blogs/verifiable-llm-infra/"
@@ -30,16 +35,78 @@
     - label: "VeriServe"
       url: "https://github.com/hao-ai-lab/veriserve"
 
+- id: fastafd
+  title: "FastAFD: When Does Attention–FFN Disaggregation Pay on Rack-Scale NVLink?"
+  url: "https://arxiv.org/abs/2611.07149"
+  authors:
+    - "Yichao Fu*"
+    - "Yuxuan Zhang*"
+    - "Minshen Zhang*"
+    - "Ruitian Wang"
+    - "Junda Chen"
+    - "Hao Zhang"
+  venue: "arXiv preprint, 2026"
+  links:
+    - label: "arXiv"
+      url: "https://arxiv.org/abs/2611.07149"
+    - label: "Blog"
+      url: "https://haoailab.com/blogs/fastafd/"
+    - label: "Code"
+      url: "https://github.com/hao-ai-lab/FastAFD"
+
 - id: nanorollout
-  name: "NanoRollout — Scaling Digital Agent RL and Distillation"
-  role_label: "Equal contribution"
+  title: "NanoRollout: Scaling Digital Agent RL and Distillation"
   url: "https://cocoa-org.notion.site/nanorollout"
-  description: >-
-    Scaling SWE-agent RL rollouts to 4,096 and multi-harness distillation for
-    Mocha-Coder-32B, showing single-harness training can perform worse than the
-    base model under an unseen harness.
+  authors:
+    - "Junli Wang*"
+    - "Zhoujun Cheng*"
+    - "Yuxuan Zhang*"
+    - "Shibo Hao"
+    - "Yao Tang"
+    - "Zhiting Hu"
+    - "Prithviraj Ammanabrolu"
+    - "Hao Zhang"
+  venue: "Technical Blog, 2026"
   links:
     - label: "Blog"
       url: "https://cocoa-org.notion.site/nanorollout"
     - label: "Code"
       url: "https://github.com/cocoa-org/NanoRollout"
+
+- id: gamingagent-grl
+  title: "lmgame-Bench: How Good are LLMs at Playing Games?"
+  url: "https://arxiv.org/abs/2505.15146"
+  authors:
+    - "Lanxiang Hu*"
+    - "Mingjia Huo*"
+    - "Yuxuan Zhang†"
+    - "Haoyang Yu†"
+    - "Eric P. Xing"
+    - "Ion Stoica"
+    - "Tajana Rosing"
+    - "Haojian Jin"
+    - "Hao Zhang"
+  venue: "ICLR 2026"
+  links:
+    - label: "Paper"
+      url: "https://arxiv.org/abs/2505.15146"
+    - label: "Code"
+      url: "https://github.com/lmgame-org/GamingAgent"
+
+- id: modular-harness
+  title: "General Modular Harness for LLM Agents in Multi-Turn Gaming Environments"
+  url: "https://arxiv.org/abs/2507.11633"
+  authors:
+    - "Yuxuan Zhang*"
+    - "Haoyang Yu*"
+    - "Lanxiang Hu"
+    - "Haojian Jin"
+    - "Hao Zhang"
+  venue: "ICML MAS Workshop 2025"
+  links:
+    - label: "Paper"
+      url: "https://arxiv.org/abs/2507.11633"
+    - label: "GRL"
+      url: "https://github.com/lmgame-org/GRL"
+    - label: "Demo"
+      url: "https://x.com/haoailab/status/1912231343372812508"
