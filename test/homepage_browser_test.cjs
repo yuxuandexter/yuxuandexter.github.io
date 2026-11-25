@@ -33,7 +33,7 @@ const { chromium } = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
         badLinks: [...document.querySelectorAll('a')].filter(a => a.href.startsWith(location.origin) && a.hash && a.pathname === location.pathname && !document.getElementById(a.hash.slice(1))).map(a => a.href)
       }));
       assert.ok(state.scrollWidth <= width, `horizontal overflow: ${JSON.stringify(state)}`);
-      assert.deepEqual(state.order, ['fastafd', 'gamingagent-grl', 'nanorollout', 'tunix']);
+      assert.deepEqual(state.order, ['verifiable-llm-infra', 'tunix', 'fastafd', 'gamingagent-grl', 'nanorollout']);
       assert.equal(state.newsDirection, width > 600 ? 'row' : 'column', 'News should use a compact desktop date column and stack on mobile');
       assert.ok(state.metaMargin <= 8, 'Project role and description should not be separated by an empty paragraph-sized gap');
       assert.equal(state.newsIcons, 0, "News uses plain dates and text, without broken decorative glyphs");

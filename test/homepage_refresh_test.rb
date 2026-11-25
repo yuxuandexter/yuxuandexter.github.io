@@ -102,18 +102,30 @@ class HomepageRefreshTest < Minitest::Test
   def test_homepage_matches_approved_identity_order_and_contributions
     titles = @home.css(".work-item__title").map { |n| n.text.strip }
     assert_equal [
+      "vstack & VeriServe — Towards Verifiable LLM Infrastructure",
+      "Tunix (Zero-TIM) — Bitwise-Zero On-Policy RL on TPUs",
       "FastAFD — Attention–FFN Disaggregation for MoE Inference",
       "GamingAgent & GRL — Game-Based Evaluation and Multi-Turn RL",
-      "NanoRollout — Scaling Digital Agent RL and Distillation",
-      "Tunix — LLM Post-Training on TPUs"
+      "NanoRollout — Scaling Digital Agent RL and Distillation"
     ], titles
     intro = @home.at_css(".home-intro").text
     assert_includes intro, "Ph.D. student in Data Science"
     assert_includes intro, "systems for LLM inference and reinforcement learning"
+    assert_includes intro, "verifiable AI infrastructure"
     assert_includes intro, "Previously, I interned at Google"
     refute_includes intro, "incoming"
     refute @home.css(".home-links a").any? { |a| a.text.strip == "CV" }
     assert_equal ["Recent News", "Selected Work", "Publications"], @home.css(".page__content h2").map { |n| n.text.strip }
+    news_items = @home.css(".news-item")
+    assert_equal 6, news_items.size
+    assert_includes news_items[0].text, "Zero-TIM"
+    assert_includes news_items[1].text, "Towards Verifiable LLM Infra"
+    verifiable = @home.at_css("#verifiable-llm-infra")
+    refute_nil verifiable
+    assert_includes verifiable.text, "Lead"
+    assert_includes verifiable.text, "vstack"
+    assert_includes verifiable.text, "VeriServe"
+    assert verifiable.css(".item-links a").any? { |a| a["href"] == "https://haoailab.com/blogs/verifiable-llm-infra/" }
     nano = @home.at_css("#nanorollout")
     refute_nil nano
     assert_includes nano.text, "Equal contribution"
@@ -121,8 +133,10 @@ class HomepageRefreshTest < Minitest::Test
     assert_equal "Blog", nano.at_css(".item-links a").text
     tunix = @home.at_css("#tunix")
     refute_nil tunix
+    assert_includes tunix.text, "Zero-TIM"
     assert_includes tunix.text, "sequence packing"
-    refute_match(/zero.?TIM|numerical alignment/i, tunix.text)
+    assert tunix.css(".item-links a").any? { |a| a["href"] == "https://developers.googleblog.com/unlocking-stable-on-policy-rl-on-tpu-with-bitwise-zero-traininference-mismatch/" }
+    assert tunix.css(".item-links a").any? { |a| a["href"] == "https://github.com/google/tunix/tree/main/tunix/zero_tim_kernel" }
     refute_match(/\d+ commits|top contributor|300K\+ trajectories/, @home.css(".work-list").text)
   end
 end

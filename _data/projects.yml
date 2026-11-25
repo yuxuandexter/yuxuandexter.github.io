@@ -1,3 +1,44 @@
+- id: verifiable-llm-infra
+  name: "vstack & VeriServe — Towards Verifiable LLM Infrastructure"
+  role_label: "Lead"
+  url: "https://haoailab.com/blogs/verifiable-llm-infra/"
+  description: >-
+    We introduce **vstack**, a five-stage formal verification workflow for coding
+    agents (combining TLA+, Apalache, TLAPS, and Z3) designed to prevent proof
+    shortcuts, and **VeriServe**, a disaggregated prefill–decode LLM serving
+    engine built around a formally verified KV-page lifecycle state machine.
+    Applying vstack surfaced RDMA and KV-cache concurrency bugs in upstream
+    vLLM and SGLang, while VeriServe enforces its verified safety invariants
+    at **+0.18% mean p50 TPOT overhead** on NVIDIA GB200.
+  links:
+    - label: "Technical Blog"
+      url: "https://haoailab.com/blogs/verifiable-llm-infra/"
+    - label: "vstack"
+      url: "https://github.com/hao-ai-lab/vstack"
+    - label: "VeriServe"
+      url: "https://github.com/hao-ai-lab/veriserve"
+
+- id: tunix
+  name: "Tunix (Zero-TIM) — Bitwise-Zero On-Policy RL on TPUs"
+  role_label: "Google internship · First author (Zero-TIM)"
+  url: "https://developers.googleblog.com/unlocking-stable-on-policy-rl-on-tpu-with-bitwise-zero-traininference-mismatch/"
+  description: >-
+    During my Google internship on the Tunix team, I built **Zero-TIM**,
+    combining batch-invariant Pallas TPU kernels, ordered cross-shard
+    reductions, unified logprob scoring, and custom VJP differentiation to
+    eliminate numerical train–inference drift in JAX RL. Verified across
+    **64 TPU v5p chips (DP8×TP8)**, Zero-TIM achieves **bitwise-identical
+    bfloat16 logprobs** and lifts FrozenLake solve rate from **62.7% to 88.2%**.
+    I also implemented sequence packing for LLM training on TPUs to reduce
+    padding overhead.
+  links:
+    - label: "Google Blog"
+      url: "https://developers.googleblog.com/unlocking-stable-on-policy-rl-on-tpu-with-bitwise-zero-traininference-mismatch/"
+    - label: "Zero-TIM Code"
+      url: "https://github.com/google/tunix/tree/main/tunix/zero_tim_kernel"
+    - label: "Tunix"
+      url: "https://github.com/google/tunix"
+
 - id: fastafd
   name: "FastAFD — Attention–FFN Disaggregation for MoE Inference"
   role_label: "Co-lead"
@@ -51,14 +92,3 @@
       url: "https://cocoa-org.notion.site/nanorollout"
     - label: "Code"
       url: "https://github.com/cocoa-org/NanoRollout"
-
-- id: tunix
-  name: "Tunix — LLM Post-Training on TPUs"
-  role_label: "Google internship"
-  url: "https://github.com/google/tunix"
-  description: >-
-    During my Google internship, I implemented sequence packing for LLM training
-    on TPUs, reducing padding overhead and improving training efficiency.
-  links:
-    - label: "Tunix"
-      url: "https://github.com/google/tunix"

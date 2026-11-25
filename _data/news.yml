@@ -1,3 +1,25 @@
+- date: 2026-11-16
+  title: "Our Google Developers Blog on **Zero-TIM** (*Unlocking Stable On-Policy RL on TPU with Bitwise-Zero Train–Inference Mismatch*) is out, with open-source Pallas kernels in Tunix."
+  icon: "fa-code"
+  type: "release"
+  links:
+    - label: "Google Blog"
+      url: "https://developers.googleblog.com/unlocking-stable-on-policy-rl-on-tpu-with-bitwise-zero-traininference-mismatch/"
+    - label: "Code"
+      url: "https://github.com/google/tunix/tree/main/tunix/zero_tim_kernel"
+
+- date: 2026-11-10
+  title: "We released **Towards Verifiable LLM Infra** (vstack & VeriServe), bringing agentic formal verification to disaggregated LLM serving and upstream engines."
+  icon: "fa-code"
+  type: "release"
+  links:
+    - label: "Blog"
+      url: "https://haoailab.com/blogs/verifiable-llm-infra/"
+    - label: "vstack"
+      url: "https://github.com/hao-ai-lab/vstack"
+    - label: "VeriServe"
+      url: "https://github.com/hao-ai-lab/veriserve"
+
 - date: 2026-07-06
   title: "We released **FastAFD**, an attention–FFN disaggregated inference system for MoE models."
   icon: "fa-code"

@@ -10,7 +10,7 @@ redirect_from:
 <div class="home-intro">
   <div class="home-intro__copy">
     <h1>Yuxuan Zhang</h1>
-    <p>I am a Ph.D. student in Data Science at UC San Diego, advised by <a href="https://cseweb.ucsd.edu/~haozhang/">Prof. Hao Zhang</a>. My research focuses on <strong>systems for LLM inference and reinforcement learning</strong>, including efficient model execution and infrastructure for training agents at scale.</p>
+    <p>I am a Ph.D. student in Data Science at UC San Diego, advised by <a href="https://cseweb.ucsd.edu/~haozhang/">Prof. Hao Zhang</a>. My research focuses on <strong>systems for LLM inference and reinforcement learning</strong>, including efficient model execution, verifiable AI infrastructure, and systems for training agents at scale.</p>
     <p>Previously, I interned at Google on the Tunix team. I received my B.S. in Data Science from UC San Diego, where I worked with <a href="https://cseweb.ucsd.edu/~haozhang/">Prof. Hao Zhang</a> and <a href="https://www.haojianj.in/">Prof. Haojian Jin</a> on language-model agents and reinforcement learning.</p>
     <p class="home-links">Email: yuz165 [at] ucsd [dot] edu / <a href="https://github.com/yuxuandexter">GitHub</a> / <a href="https://x.com/Yuxuan_Zhang13">X</a> / <a href="https://www.linkedin.com/in/yuxuan-zhang-dexter">LinkedIn</a> / <a href="https://scholar.google.com/citations?user=Cc8YPukAAAAJ&amp;hl=en">Google Scholar</a></p>
   </div>
@@ -19,7 +19,7 @@ redirect_from:
 
 ## Recent News
 
-{% for news in site.data.news limit:5 %}
+{% for news in site.data.news limit:6 %}
 <div class="news-item">
   <span class="news-date">{{ news.date | date: "%b %Y" }}</span>
   <span class="news-content">

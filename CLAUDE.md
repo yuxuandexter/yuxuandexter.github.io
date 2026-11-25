@@ -3,15 +3,15 @@
 ## Owner
 
 Yuxuan Zhang — Ph.D. student in Data Science @ UC San Diego, advised by Prof. Hao Zhang.
-Research focus: systems for LLM inference and reinforcement learning.
+Research focus: systems for LLM inference, reinforcement learning, and verifiable AI infrastructure.
 Previously interned at Google on the Tunix team. CS graduate study (2025–2026) did not result in an M.S. degree.
 
 ## Content and release boundaries
 
 - Homepage order: intro → Recent News → Selected Work → Publications.
-- Selected Work order: FastAFD → GamingAgent & GRL → NanoRollout → Tunix (`_data/projects.yml`).
+- Selected Work order: vstack & VeriServe → Tunix (Zero-TIM) → FastAFD → GamingAgent & GRL → NanoRollout (`_data/projects.yml`).
 - NanoRollout emphasizes the blog's training findings and equal-contribution authorship, not commit counts.
-- Tunix may describe sequence packing during the Google internship; do not add private performance numbers or training–inference alignment claims without approval. The project repository link is not proof the internship work has been merged publicly.
+- Tunix covers the publicly released Zero-TIM Google Developers Blog (`tunix/zero_tim_kernel`) and sequence packing from the Google internship; do not add unpublished internal metrics without approval.
 - Do not add a CV link. The existing `/cv/` page and PDF remain unchanged unless separately requested.
 - Preview → user approval → edit and verify → explicit commit/push/deploy authorization. A push to `master` may publish the website.
 - Exclude template/deprecated content and maintenance files from the public build rather than deleting historical sources.
