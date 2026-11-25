@@ -1,1 +1,1 @@
-<p class="publication-item__authors">{% for author in include.authors %}{% if author == site.name %}<strong>{{ author }}</strong>{% else %}{{ author }}{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}</p>
+<p class="publication-item__authors">{% for author in include.authors %}{% if author contains site.name %}<strong>{{ author }}</strong>{% else %}{{ author }}{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}</p>

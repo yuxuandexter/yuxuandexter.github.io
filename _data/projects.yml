@@ -1,92 +1,43 @@
+- id: tunix
+  name: "Zero-TIM in Tunix — Bitwise-Zero Train–Inference Mismatch on TPU"
+  role_label: "Google internship · First author"
+  url: "https://developers.googleblog.com/unlocking-stable-on-policy-rl-on-tpu-with-bitwise-zero-traininference-mismatch/"
+  description: >-
+    Batch-invariant Pallas kernels and ordered cross-shard reductions achieving
+    bitwise-identical bfloat16 logprobs across 64 TPU v5p chips (62.7% → 88.2%
+    FrozenLake solve rate); also implemented TPU sequence packing.
+  links:
+    - label: "Google Blog"
+      url: "https://developers.googleblog.com/unlocking-stable-on-policy-rl-on-tpu-with-bitwise-zero-traininference-mismatch/"
+    - label: "Code"
+      url: "https://github.com/google/tunix/tree/main/tunix/zero_tim_kernel"
+    - label: "Tunix"
+      url: "https://github.com/google/tunix"
+
 - id: verifiable-llm-infra
-  name: "vstack & VeriServe — Towards Verifiable LLM Infrastructure"
+  name: "Towards Verifiable LLM Infra — vstack & VeriServe"
   role_label: "Lead"
   url: "https://haoailab.com/blogs/verifiable-llm-infra/"
   description: >-
-    We introduce **vstack**, a five-stage formal verification workflow for coding
-    agents (combining TLA+, Apalache, TLAPS, and Z3) designed to prevent proof
-    shortcuts, and **VeriServe**, a disaggregated prefill–decode LLM serving
-    engine built around a formally verified KV-page lifecycle state machine.
-    Applying vstack surfaced RDMA and KV-cache concurrency bugs in upstream
-    vLLM and SGLang, while VeriServe enforces its verified safety invariants
-    at **+0.18% mean p50 TPOT overhead** on NVIDIA GB200.
+    Five-stage agentic formal verification workflow (uncovering concurrency bugs
+    in vLLM and SGLang) and a formally verified disaggregated PD serving engine
+    (+0.18% mean p50 TPOT overhead on GB200).
   links:
-    - label: "Technical Blog"
+    - label: "Blog"
       url: "https://haoailab.com/blogs/verifiable-llm-infra/"
     - label: "vstack"
       url: "https://github.com/hao-ai-lab/vstack"
     - label: "VeriServe"
       url: "https://github.com/hao-ai-lab/veriserve"
 
-- id: tunix
-  name: "Tunix (Zero-TIM) — Bitwise-Zero On-Policy RL on TPUs"
-  role_label: "Google internship · First author (Zero-TIM)"
-  url: "https://developers.googleblog.com/unlocking-stable-on-policy-rl-on-tpu-with-bitwise-zero-traininference-mismatch/"
-  description: >-
-    During my Google internship on the Tunix team, I built **Zero-TIM**,
-    combining batch-invariant Pallas TPU kernels, ordered cross-shard
-    reductions, unified logprob scoring, and custom VJP differentiation to
-    eliminate numerical train–inference drift in JAX RL. Verified across
-    **64 TPU v5p chips (DP8×TP8)**, Zero-TIM achieves **bitwise-identical
-    bfloat16 logprobs** and lifts FrozenLake solve rate from **62.7% to 88.2%**.
-    I also implemented sequence packing for LLM training on TPUs to reduce
-    padding overhead.
-  links:
-    - label: "Google Blog"
-      url: "https://developers.googleblog.com/unlocking-stable-on-policy-rl-on-tpu-with-bitwise-zero-traininference-mismatch/"
-    - label: "Zero-TIM Code"
-      url: "https://github.com/google/tunix/tree/main/tunix/zero_tim_kernel"
-    - label: "Tunix"
-      url: "https://github.com/google/tunix"
-
-- id: fastafd
-  name: "FastAFD — Attention–FFN Disaggregation for MoE Inference"
-  role_label: "Co-lead"
-  url: "https://haoailab.com/blogs/fastafd/"
-  description: >-
-    FastAFD separates KV-cache-constrained attention from MoE expert execution,
-    aggregating tokens across attention workers to keep expert batches large.
-    Its runtime overlaps communication, computation, and scheduling to make
-    disaggregation effective on GB200 NVL72. On Qwen3-235B-A22B-FP8 and MiniMax-M2.5,
-    it achieves **1.35–1.45× per-GPU steady-state decode throughput** over a tuned
-    colocated vLLM baseline.
-  links:
-    - label: "Technical Blog"
-      url: "https://haoailab.com/blogs/fastafd/"
-    - label: "Code"
-      url: "https://github.com/hao-ai-lab/FastAFD"
-
-- id: gamingagent-grl
-  name: "GamingAgent & GRL — Game-Based Evaluation and Multi-Turn RL"
-  role_label: "GamingAgent: Co-lead · GRL: Lead"
-  url: "https://github.com/lmgame-org/GamingAgent"
-  description: >-
-    GamingAgent combines standardized game environments with a modular
-    perception–memory–reasoning harness, enabling comparisons between bare
-    LLM/VLM policies and agentic workflows. GRL extends this ecosystem from
-    evaluation to multi-turn reinforcement learning, with training backends
-    built on VERL and Tunix.
-  links:
-    - label: "GamingAgent"
-      url: "https://github.com/lmgame-org/GamingAgent"
-    - label: "GRL"
-      url: "https://github.com/lmgame-org/GRL"
-    - label: "Paper"
-      url: "https://arxiv.org/abs/2505.15146"
-    - label: "Ace Attorney Demo"
-      url: "https://x.com/haoailab/status/1912231343372812508"
-
 - id: nanorollout
   name: "NanoRollout — Scaling Digital Agent RL and Distillation"
   role_label: "Equal contribution"
   url: "https://cocoa-org.notion.site/nanorollout"
   description: >-
-    We use NanoRollout to study how rollout scale and training-data composition
-    affect digital agents. In matched-recipe SWE-agent experiments, scaling
-    rollout batches to **4,096** improves RL performance. Our distillation study
-    also exposes a key failure mode: **single-harness training can perform worse
-    than the base model under an unseen harness**. These findings motivate
-    multi-harness trajectory mixtures, used to train **Mocha-Coder-32B**.
+    Scaling SWE-agent RL rollouts to 4,096 and multi-harness distillation for
+    Mocha-Coder-32B, showing single-harness training can perform worse than the
+    base model under an unseen harness.
   links:
     - label: "Blog"
       url: "https://cocoa-org.notion.site/nanorollout"

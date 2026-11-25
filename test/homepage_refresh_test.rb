@@ -78,12 +78,17 @@ class HomepageRefreshTest < Minitest::Test
 
   def test_publications_show_authors_and_a_single_venue_year
     items = @home.css(".publication-item")
-    assert_equal 2, items.size
-    assert_equal "https://arxiv.org/abs/2505.15146", items.first.at_css(".publication-item__title a")["href"]
-    assert_equal 2, @home.css(".publication-item__authors strong").count { |n| n.text == "Yuxuan Zhang" }
-    assert_includes items.first.text, "Lanxiang Hu"
-    refute_includes items.first.text, "**LMGame-Bench**"
+    assert_equal 3, items.size
+    assert_equal "https://arxiv.org/abs/2611.07149", items[0].at_css(".publication-item__title a")["href"]
+    assert_equal "https://arxiv.org/abs/2505.15146", items[1].at_css(".publication-item__title a")["href"]
+    assert_equal "gamingagent-grl", items[1]["id"]
+    assert_equal 3, @home.css(".publication-item__authors strong").count { |n| n.text.include?("Yuxuan Zhang") }
+    assert_includes items[0].text, "Yichao Fu*, Yuxuan Zhang*, Minshen Zhang*"
+    assert_includes items[1].text, "Lanxiang Hu*, Mingjia Huo*, Yuxuan Zhang†, Haoyang Yu†"
+    assert_includes items[2].text, "Yuxuan Zhang*, Haoyang Yu*"
+    refute_includes items[1].text, "**LMGame-Bench**"
     pages = [
+      ["publication/2026-11-11-fastafd.html", "arXiv preprint, 2026", "https://arxiv.org/abs/2611.07149"],
       ["publication/2025-05-21-lmgame-bench-neurips-main-track.html", "ICLR 2026", "https://arxiv.org/abs/2505.15146"],
       ["publication/2025-07-15-llm-agents-icml-workshop.html", "ICML MAS Workshop 2025", "https://arxiv.org/abs/2507.11633"]
     ]
@@ -95,6 +100,7 @@ class HomepageRefreshTest < Minitest::Test
       assert page.css(".page__content a").any? { |a| a["href"] == paper }
     end
     archive = Nokogiri::HTML(File.read(File.join(DESTINATION, "publications/index.html")))
+    assert_includes archive.text, "FastAFD"
     assert_includes archive.text, "Lanxiang Hu"
     refute_match(/ICLR 2026,\s*2026/, archive.text)
   end
@@ -102,24 +108,19 @@ class HomepageRefreshTest < Minitest::Test
   def test_homepage_matches_approved_identity_order_and_contributions
     titles = @home.css(".work-item__title").map { |n| n.text.strip }
     assert_equal [
-      "vstack & VeriServe — Towards Verifiable LLM Infrastructure",
-      "Tunix (Zero-TIM) — Bitwise-Zero On-Policy RL on TPUs",
-      "FastAFD — Attention–FFN Disaggregation for MoE Inference",
-      "GamingAgent & GRL — Game-Based Evaluation and Multi-Turn RL",
+      "Zero-TIM in Tunix — Bitwise-Zero Train–Inference Mismatch on TPU",
+      "Towards Verifiable LLM Infra — vstack & VeriServe",
       "NanoRollout — Scaling Digital Agent RL and Distillation"
     ], titles
     intro = @home.at_css(".home-intro").text
     assert_includes intro, "Ph.D. student in Data Science"
     assert_includes intro, "systems for LLM inference and reinforcement learning"
     assert_includes intro, "verifiable AI infrastructure"
-    assert_includes intro, "Previously, I interned at Google"
+    assert_includes intro, "JAX-native LLM post-training and RL framework on TPUs"
     refute_includes intro, "incoming"
     refute @home.css(".home-links a").any? { |a| a.text.strip == "CV" }
-    assert_equal ["Recent News", "Selected Work", "Publications"], @home.css(".page__content h2").map { |n| n.text.strip }
-    news_items = @home.css(".news-item")
-    assert_equal 6, news_items.size
-    assert_includes news_items[0].text, "Zero-TIM"
-    assert_includes news_items[1].text, "Towards Verifiable LLM Infra"
+    assert_equal ["Publications", "Selected Systems & Technical Blogs"], @home.css(".page__content h2").map { |n| n.text.strip }
+    assert_empty @home.css(".news-item")
     verifiable = @home.at_css("#verifiable-llm-infra")
     refute_nil verifiable
     assert_includes verifiable.text, "Lead"

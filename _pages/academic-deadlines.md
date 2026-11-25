@@ -9,7 +9,7 @@ author_profile: false
 {% assign milestones = confirmed_milestones | concat: planning_markers | sort: "deadline" %}
 
 <div class="academic-deadlines">
-  <p class="academic-deadlines__purpose">A planning timeline for research submission deadlines across AI/ML and systems. Rows marked <strong>Past-cycle basis</strong> use the prior official cycle as a planning reference, not an announced deadline.</p>
+  <p class="academic-deadlines__purpose">A planning timeline for research submission deadlines across AI/ML, systems, and formal verification. Rows marked <strong>Past-cycle basis</strong> use the prior official cycle as a planning reference, not an announced deadline.</p>
 
   <div class="academic-deadlines__meta">
     <span>Current time <strong class="academic-deadlines__now" data-current-time></strong></span>
@@ -29,9 +29,10 @@ author_profile: false
 
   <div class="academic-deadlines__filters" role="group" aria-label="Filter venues by research area">
     <button class="academic-deadlines__filter is-active" type="button" data-filter="all">All</button>
-    <button class="academic-deadlines__filter" type="button" data-filter="ai">AI / ML</button>
     <button class="academic-deadlines__filter" type="button" data-filter="systems">Systems</button>
+    <button class="academic-deadlines__filter" type="button" data-filter="ai">AI / ML</button>
     <button class="academic-deadlines__filter" type="button" data-filter="bridge">ML × Systems</button>
+    <button class="academic-deadlines__filter" type="button" data-filter="fv">Verification / PL</button>
     <label class="academic-deadlines__show-past"><input type="checkbox" data-show-past> Show past deadlines</label>
   </div>
 
@@ -54,7 +55,7 @@ author_profile: false
 
   </section>
 
-  <p class="academic-deadlines__note">ICLR lists dates in AoE without a cutoff minute; its countdowns use an end-of-day AoE convention (11:59 pm), not an officially stated time. This is a curated personal timeline, not a comprehensive conference directory. Displayed deadlines link to official calls for papers; no paper, author, or submission-status information is published.</p>
+  <p class="academic-deadlines__note">Venues listing AoE dates without a cutoff minute use an end-of-day AoE convention (11:59 pm) for countdowns. This is a curated personal timeline, not a comprehensive conference directory. Displayed deadlines link to official calls for papers; no paper, author, or submission-status information is published.</p>
 </div>
 
 <script>

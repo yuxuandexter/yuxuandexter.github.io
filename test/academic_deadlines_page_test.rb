@@ -37,27 +37,28 @@ class AcademicDeadlinesPageTest < Minitest::Test
 
     html = File.read(@page)
     assert_includes html, "Past-cycle basis"
-    assert_includes html, "ICLR ’27"
-    assert_includes html, "Sep 18, 2026 · AoE"
-    assert_includes html, "Sep 25, 2026 · AoE"
-    refute_includes html, "Sep 24, 2026"
+    assert_includes html, "ICML ’27"
+    assert_includes html, "Jan 14, 2027 · AoE"
+    assert_includes html, "Jan 22, 2027 · AoE"
+    assert_includes html, "CAV ’27"
+    assert_includes html, "OOPSLA ’27"
+    assert_includes html, "Verification / PL"
     rows = html.scan(/<article class="academic-deadlines__row.*?<\/article>/m)
-    iclr_rows = rows.select { |row| row.include?("ICLR ’27") }
-    assert_equal 2, iclr_rows.length
-    iclr_rows.each do |row|
-      assert_includes row, "https://iclr.cc/Conferences/2027/CallForPapers"
+    icml_rows = rows.select { |row| row.include?("ICML ’27") }
+    assert_equal 2, icml_rows.length
+    icml_rows.each do |row|
+      assert_includes row, "https://icml.cc/Conferences/2027/CallForPapers"
       assert_includes row, "Official CFP"
       refute_includes row, "Past-cycle basis"
-      refute_includes row, "11:59 pm"
     end
-    assert_includes iclr_rows[0], "Abstract registration"
-    assert_includes iclr_rows[0], 'data-deadline="2026-09-19T11:59:00Z"'
-    assert_includes iclr_rows[1], 'data-deadline="2026-09-26T11:59:00Z"'
+    assert_includes icml_rows[0], "Abstract submission"
+    assert_includes icml_rows[0], 'data-deadline="2027-01-15T11:59:00Z"'
+    assert_includes icml_rows[1], 'data-deadline="2027-01-23T11:59:00Z"'
     assert_includes html, "end-of-day AoE convention"
     deadlines = rows.map { |row| row[/data-deadline="([^"]+)"/, 1] }
     assert_equal deadlines.sort, deadlines
-    assert_equal 11, rows.length
-    assert_operator html.index("NSDI ’27"), :<, html.index("ICLR ’27")
+    assert_equal 14, rows.length
+    assert_operator html.index("OSDI ’27"), :<, html.index("ICML ’27")
     refute_includes html, "Awaiting official CFP"
     refute_includes html, ">TBD<"
   end
@@ -66,9 +67,10 @@ class AcademicDeadlinesPageTest < Minitest::Test
     assert @status.success?, "Jekyll build failed:\n#{@stdout}\n#{@stderr}"
 
     html = File.read(@page)
-    assert_includes html, "ASPLOS ’27"
-    assert_includes html, "September cycle"
-    assert_includes html, "Sep 9, 2026 · 11:59 pm AoE"
+    assert_includes html, "SOSP ’27"
+    assert_includes html, "ASPLOS ’28"
+    assert_includes html, "April cycle"
+    assert_includes html, "Apr 15, 2027 · 11:59 pm AoE"
     assert_includes html, "Past CFP"
     refute_includes html, "Last official cycle"
   end
@@ -79,9 +81,9 @@ class AcademicDeadlinesPageTest < Minitest::Test
 
     html = File.read(@page)
     assert_includes html, "Academic Deadlines"
-    assert_includes html, "NSDI ’27"
     assert_includes html, "OSDI ’27"
-    assert_includes html, "https://www.usenix.org/conference/nsdi27/call-for-papers"
+    assert_includes html, "NSDI ’28"
+    assert_includes html, "https://www.usenix.org/conference/osdi27/call-for-papers"
     assert_includes html, "prior official cycle as a planning reference"
     assert_includes html, "No deadlines or CFP references are available for this filter."
   end

@@ -25,19 +25,15 @@ const { chromium } = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
         width: innerWidth,
         scrollWidth: document.documentElement.scrollWidth,
         order: [...document.querySelectorAll('.work-item')].map(e => e.id),
-        newsDirection: getComputedStyle(document.querySelector('.news-item')).flexDirection,
-        newsGap: parseFloat(getComputedStyle(document.querySelector('.news-item')).rowGap),
-        newsIcons: document.querySelectorAll('.news-content i').length,
+        pubCount: document.querySelectorAll('.publication-item').length,
         metaMargin: parseFloat(getComputedStyle(document.querySelector('.work-item__meta')).marginBottom),
         imageLoaded: [...document.querySelectorAll('img')].every(i => i.complete && i.naturalWidth > 0),
         badLinks: [...document.querySelectorAll('a')].filter(a => a.href.startsWith(location.origin) && a.hash && a.pathname === location.pathname && !document.getElementById(a.hash.slice(1))).map(a => a.href)
       }));
       assert.ok(state.scrollWidth <= width, `horizontal overflow: ${JSON.stringify(state)}`);
-      assert.deepEqual(state.order, ['verifiable-llm-infra', 'tunix', 'fastafd', 'gamingagent-grl', 'nanorollout']);
-      assert.equal(state.newsDirection, width > 600 ? 'row' : 'column', 'News should use a compact desktop date column and stack on mobile');
+      assert.deepEqual(state.order, ['tunix', 'verifiable-llm-infra', 'nanorollout']);
+      assert.equal(state.pubCount, 3);
       assert.ok(state.metaMargin <= 8, 'Project role and description should not be separated by an empty paragraph-sized gap');
-      assert.equal(state.newsIcons, 0, "News uses plain dates and text, without broken decorative glyphs");
-      if (width <= 600) assert.ok(state.newsGap <= 8, "Mobile News spacing should remain compact");
       assert.ok(state.imageLoaded);
       assert.deepEqual(state.badLinks, []);
       assert.deepEqual(errors, []);
